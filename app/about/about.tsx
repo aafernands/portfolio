@@ -5,7 +5,7 @@ const About: React.FC = () => {
     return (
         <div className="about-container">
             <div className="about-image">
-                <img src="/path/to/your/photo.jpg" alt="Your Name" />
+                <img src="logo.png" alt="Alex Fernandes Picture" />
             </div>
             <div className="about-text">
                 <h2>About Me</h2>
