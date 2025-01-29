@@ -25,8 +25,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      {" "}
-      <ThreeBackground /> {/* Three.js effect applied to the whole page */}
+      <ThreeBackground />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
