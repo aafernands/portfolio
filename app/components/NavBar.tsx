@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"; // Import sun and moon icons
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +23,11 @@ const NavBar = () => {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  // Toggle dark mode manually
+  const handleToggleDarkMode = () => {
+    setIsDarkMode((prev) => !prev);
+  };
 
   // Close the drawer when clicking outside
   useEffect(() => {
@@ -50,16 +55,27 @@ const NavBar = () => {
     <nav
       className="p-4"
       style={{
-        color: "var(--foreground)",
-        backgroundColor: "var(--foreground)",
+        color: isDarkMode ? "var(--background)" : "var(--foreground)",
+        backgroundColor: isDarkMode ? "var(--background)" : "var(--foreground)",
+        position: "fixed", // Fix navbar to the top
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50, // Ensure navbar stays on top
+        margin: "10px", // Add margin around the navbar
+        borderRadius: "15px", // Rounded borders
+        boxShadow: isDarkMode
+          ? "0 4px 8px rgba(6, 28, 28, 0.5), 0 0 10px rgba(29, 54, 54, 0.7)" // Glowing turquoise shadow in dark mode
+          : "0 4px 8px rgba(0, 0, 0, 0.2)", // Regular shadow in light mode
       }}
     >
       <div className="container mx-auto flex justify-between items-center">
+        {/* Logo Section */}
         <div className="flex items-center space-x-4">
           <div>
             <Link href="/">
               <img
-                src={isDarkMode ? "./logo-light.png" : "./logo-dark.png"}
+                src={isDarkMode ? "./logo-dark.png" : "./logo-light.png"}
                 alt="Logo"
                 className="h-10 w-20"
               />
@@ -67,59 +83,92 @@ const NavBar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        {/* Dark Mode Toggle and Menu Icon */}
+        <div className="flex items-center space-x-4">
+          {/* Dark Mode Toggle Button */}
+          <button
+            onClick={handleToggleDarkMode}
+            className="text-white"
+            style={{
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            {isDarkMode ? (
+              <FontAwesomeIcon
+                icon={faSun}
+                style={{ color: "var(--foreground)" }} // Sun icon for light mode
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faMoon}
+                style={{ color: "var(--background)" }} // Moon icon for dark mode
+              />
+            )}
+          </button>
+
+          {/* Mobile Menu Button */}
           <button onClick={toggleDrawer} className="text-white">
-            <FontAwesomeIcon
-              icon={isOpen ? faTimes : faBars}
-              className="text-3xl"
-              style={{
-                color: "var(--background)",
-                // color: "white",
-              }}
-            />
+            {isDarkMode ? (
+              <FontAwesomeIcon
+                icon={isOpen ? faTimes : faBars}
+                className="text-3xl"
+                style={{
+                  color: "var(--foreground)",
+                }}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={isOpen ? faTimes : faBars} // Menu light mode
+                className="text-3xl"
+                style={{
+                  color: "var(--background)",
+                }} // Menu dark mode
+              />
+            )}
           </button>
         </div>
+      </div>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex space-x-4">
-          <Link
-            href="/"
-            className="hover:text-white"
-            style={{
-              color: isDarkMode ? "var(--background)" : "var(--foreground)",
-            }}
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="hover:text-white"
-            style={{
-              color: isDarkMode ? "var(--background)" : "var(--foreground)",
-            }}
-          >
-            About
-          </Link>
-          <Link
-            href="/projects"
-            className="hover:text-white"
-            style={{
-              color: isDarkMode ? "var(--background)" : "var(--foreground)",
-            }}
-          >
-            Projects
-          </Link>
-          <Link
-            href="/contact"
-            className="hover:text-white"
-            style={{
-              color: isDarkMode ? "var(--background)" : "var(--foreground)",
-            }}
-          >
-            Contact
-          </Link>
-        </div>
+      {/* Desktop Navigation Links */}
+      <div className="hidden md:flex space-x-4">
+        <Link
+          href="/"
+          className="hover:text-white"
+          style={{
+            color: isDarkMode ? "var(--background)" : "var(--foreground)",
+          }}
+        >
+          Home
+        </Link>
+        <Link
+          href="/about"
+          className="hover:text-white"
+          style={{
+            color: isDarkMode ? "var(--background)" : "var(--foreground)",
+          }}
+        >
+          About
+        </Link>
+        <Link
+          href="/projects"
+          className="hover:text-white"
+          style={{
+            color: isDarkMode ? "var(--background)" : "var(--foreground)",
+          }}
+        >
+          Projects
+        </Link>
+        <Link
+          href="/contact"
+          className="hover:text-white"
+          style={{
+            color: isDarkMode ? "var(--background)" : "var(--foreground)",
+          }}
+        >
+          Contact
+        </Link>
       </div>
 
       {/* Overlay when drawer is open */}

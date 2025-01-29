@@ -6,9 +6,20 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <div
-      className="grid grid-rows-[20px_1fr_0px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
-      style={{ position: "relative", overflow: "hidden" }}
+      className="relative grid grid-rows-[20px_1fr_0px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+      style={{ overflow: "hidden" }}
     >
+      {/* Elliptical smooth background object behind hero section */}
+      <div
+        className="absolute top-0 left-0 w-full h-[60%] bg-red-500 z-[-1]"
+        style={{
+          backgroundColor: "#1D2A35", // Custom color
+
+          borderRadius: "50% 50% 80% 20% / 0 0 50% 40% ", // Smooth, elliptical shape
+          transform: "scaleY(1.5)", // Stretch vertically to make it point downwards
+        }}
+      />
+
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <div
           className="text-4xl font-thin font-roboto text-center sm:text-left"
