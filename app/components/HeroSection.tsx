@@ -42,8 +42,8 @@ const HeroSection = () => {
             priority
           />
         </div>
-        <p className="text-[14px]">Welcome to my portfolio.</p>
-        <p className="text-[12px]">
+        <p className="text-[18px]">Welcome to my portfolio.</p>
+        <p className="text-[16px]">
           Hi I am Alex Fernandes, a skilled web developer with expertise in
           React, Next.js, HTML5, CSS3, JavaScript, jQuery, Bootstrap, Node.js,
           MySQL, and MongoDB. I specialize in creating high-performance,

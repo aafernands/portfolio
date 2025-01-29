@@ -3,7 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"; // Import sun and moon icons
+import {
+  faBars,
+  faTimes,
+  faMoon,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons"; // Import sun and moon icons
+import Image from "next/image"; // Import next/image for image optimization
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,10 +80,12 @@ const NavBar = () => {
         <div className="flex items-center space-x-4">
           <div>
             <Link href="/">
-              <img
-                src={isDarkMode ? "./logo-dark.png" : "./logo-light.png"}
+              <Image
+                src={isDarkMode ? "/logo-dark.png" : "/logo-light.png"}
                 alt="Logo"
                 className="h-10 w-20"
+                width={100} // Specify the width
+                height={50} // Specify the height
               />
             </Link>
           </div>
