@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     "Web Developer Portfolio showcasing projects, skills, and experience.",
   keywords:
     "web developer, portfolio, Alex Fernandes, React, JavaScript, Next.js, HTML, CSS, web development",
-  author: "Alex Fernandes",
   openGraph: {
     title: "Alex Fernandes | Portfolio",
     description:
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
     title: "Alex Fernandes | Portfolio",
     description:
       "Explore the portfolio of Alex Fernandes, a skilled web developer with expertise in React, JavaScript, and more.",
-    image: "/images/portfolio-thumbnail.png", // Path to your portfolio thumbnail image
+    images: ["/images/portfolio-thumbnail.png"], // Corrected to use 'images' (array)
   },
 };
 
