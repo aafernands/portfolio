@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -50,8 +50,9 @@ const NavBar = () => {
 		<nav
 			className="p-4"
 			style={{
-				color: "var(--foreground)",
-				backgroundColor: "var(--foreground)",
+				// color: "var(--foreground)",
+				// color: "white",
+				// backgroundColor: "var(--foreground)",
 			}}
 		>
 			<div className="container mx-auto flex justify-between items-center">
@@ -60,10 +61,11 @@ const NavBar = () => {
 					{/* Logo */}
 					<div>
 						<img
-							src={isDarkMode ? "./logo-light.png" : "./logo-dark.png"}
+							src={isDarkMode ? "./logo-white.png" : "./logo-black.png"}
 							alt="Logo"
 							className="h-10 w-20"
 						/>
+						
 					</div>
 				</div>
 
@@ -74,7 +76,8 @@ const NavBar = () => {
 							icon={isOpen ? faTimes : faBars}
 							className="text-3xl"
 							style={{
-								color: "var(--background)",
+								color: "var(--foreground)",
+								// color: "white",
 							}}
 						/>
 					</button>
