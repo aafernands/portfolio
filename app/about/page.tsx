@@ -1,5 +1,6 @@
 // components/About.tsx
 import React from 'react';
+import Image from 'next/image';
 
 const skills = [
     'HTML5',
@@ -22,14 +23,14 @@ export default function About() {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     {/* Left: Photo and Intro */}
                     <div className="text-center md:text-left">
-                        <img
+                        <Image
                             src="/aboutPhoto.png" // Replace with your photo path
                             alt="Alex Fernandes"
                             className="mx-auto md:mx-0 rounded-full w-32 h-32 object-cover shadow-lg"
                         />
                         <h2 className="mt-8 text-3xl font-bold text-gray-900 dark:text-gray-100">About Me</h2>
                         <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                            Hi, I'm Alex Fernandes, a passionate web developer with experience in front-end and back-end technologies. I love building dynamic and user-friendly web applications, and I am always learning new technologies to improve my skills.
+                            Hi, I am Alex Fernandes, a passionate web developer with experience in front-end and back-end technologies. I love building dynamic and user-friendly web applications, and I am always learning new technologies to improve my skills.
                         </p>
                     </div>
 
