@@ -36,9 +36,9 @@ const projects = [
   },
 ];
 
-const PortfolioSection = () => {
+const ProjectsSection = () => {
   return (
-    <div  id="portfolio" className=" min-h-screen flex items-center justify-center bg-gray-100">
+    <div  id="projects" className=" min-h-screen flex items-center justify-center bg-gray-100">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-6">Portfolio</h2>
         <p className="text-center text-gray-600 mb-12">
@@ -65,4 +65,4 @@ const PortfolioSection = () => {
   );
 };
 
-export default PortfolioSection;
+export default ProjectsSection;

@@ -20,20 +20,14 @@ const NavBar = () => {
     setIsOpen(!isOpen);
   };
 
-  // Detect dark mode preference
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    setIsDarkMode(mediaQuery.matches);
-
-    const handleChange = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-
   // Toggle dark mode manually
   const handleToggleDarkMode = () => {
-    setIsDarkMode((prev) => !prev);
+    const htmlElement = document.documentElement;
+    htmlElement.classList.toggle("dark");
+    setIsDarkMode(!isDarkMode); // Update dark mode state
   };
+
+
 
   // Close the drawer when clicking outside
   useEffect(() => {
@@ -81,7 +75,7 @@ const NavBar = () => {
           <div>
             <Link href="/">
               <Image
-                src={isDarkMode ? "/logo-dark.png" : "/logo-light.png"}
+                src={isDarkMode ? "/logo-light.png" : "/logo-dark.png"}
                 alt="Logo"
                 className="h-10 w-20"
                 width={100} // Specify the width
@@ -151,7 +145,7 @@ const NavBar = () => {
           Home
         </Link>
         <Link
-          href="/about"
+          href="#about"
           className="hover:text-white"
           style={{
             color: isDarkMode ? "var(--background)" : "var(--foreground)",
@@ -160,7 +154,7 @@ const NavBar = () => {
           About
         </Link>
         <Link
-          href="/projects"
+          href="#projects"
           className="hover:text-white"
           style={{
             color: isDarkMode ? "var(--background)" : "var(--foreground)",
@@ -169,7 +163,7 @@ const NavBar = () => {
           Projects
         </Link>
         <Link
-          href="/contact"
+          href="#contact"
           className="hover:text-white"
           style={{
             color: isDarkMode ? "var(--background)" : "var(--foreground)",
@@ -190,9 +184,8 @@ const NavBar = () => {
       {/* Sliding Drawer */}
       <div
         ref={drawerRef} // Drawer ref
-        className={`fixed top-0 left-0 h-full w-64 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out z-30`} // Drawer z-index higher than overlay
+        className={`fixed top-0 left-0 h-full w-64 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out z-30`} // Drawer z-index higher than overlay
         style={{
           backgroundColor: isDarkMode
             ? "var(--background)"
@@ -221,7 +214,7 @@ const NavBar = () => {
             Home
           </Link>
           <Link
-            href="/about"
+            href="#about"
             onClick={toggleDrawer}
             className="block"
             style={{
@@ -231,7 +224,7 @@ const NavBar = () => {
             About
           </Link>
           <Link
-            href="/projects"
+            href="#projects"
             onClick={toggleDrawer}
             className="block"
             style={{
@@ -241,7 +234,7 @@ const NavBar = () => {
             Projects
           </Link>
           <Link
-            href="/contact"
+            href="#contact"
             onClick={toggleDrawer}
             className="block"
             style={{

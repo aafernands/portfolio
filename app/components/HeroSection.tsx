@@ -2,58 +2,67 @@
 
 import React from "react";
 import Image from "next/image";
+import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion"; // Direct import
 
 export default function HeroSection() {
+
+  const scrollToSection = () => {
+    const section = document.getElementById("about");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div
-      className="relative grid grid-rows-[20px_1fr_0px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
-      style={{ overflow: "hidden" }}
-    >
-      {/* Elliptical smooth background object behind hero section */}
+    <section className="dark:bg-blacktext-center py-0">
       <div
-        className="absolute top-0 left-0 w-full h-[60%] bg-black-500 z-[-1]"
-        style={{
-          // backgroundColor: "#1D2A35", 
-
-          // borderRadius: "50% 50% 80% 20% / 0 0 50% 40% ", // Smooth, elliptical shape
-          // transform: "scaleY(1.5)", // Stretch vertically to make it point downwards
-        }}
-      />
-
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div
-          className="text-4xl font-thin font-roboto text-center sm:text-left"
-          style={{ color: "var(--foreground)" }}
+        className=" dark:bg-blue-500 relative grid grid-rows-[20px_1fr_0px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+        style={{ overflow: "hidden" }}
+      >
+        {/* Pulsating Arrow */}
+        <motion.div
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer text-red-500"
+          animate={{ y: [0, 10, 0] }} // Pulsating effect
+          transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+          onClick={scrollToSection}
         >
-          <span className="text-8xl font-thin font-roboto text-center sm:text-left">
-            ALEX
-          </span>
-          <br />
-          FERNANDES
-        </div>
-        <p className="text-[14px]">THE JOURNEY OF A FRONT-END WEB DEVELOPER</p>
+          <FaChevronDown className="text-3xl animate-pulse" />
+        </motion.div>
+        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+          <div
+            className="text-4xl font-thin font-roboto text-center sm:text-left"
+            style={{ color: "var(--foreground)" }}
+          >
+            <span className="text-8xl font-thin font-roboto text-center sm:text-left">
+              ALEX
+            </span>
+            <br />
+            FERNANDES
+          </div>
+          <p className="text-[14px]">THE JOURNEY OF A FRONT-END WEB DEVELOPER</p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <Image
-            src="/aboutPhoto.png"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-        </div>
-        <p className="text-[18px]">Welcome to my portfolio.</p>
-        <p className="text-[16px]">
-          Hi I am Alex Fernandes, a skilled web developer with expertise in
-          React, Next.js, HTML5, CSS3, JavaScript, jQuery, Bootstrap, Node.js,
-          MySQL, and MongoDB. I specialize in creating high-performance,
-          scalable web applications, delivering responsive and efficient
-          solutions. I also have experience in Salesforce development,
-          optimizing workflows with customized solutions. Fluent in Portuguese
-          and English, I thrive in collaborative environments and stay updated
-          with the latest industry trends to deliver cutting-edge web solutions.
-        </p>
-      </main>
-    </div>
+          <div className="flex gap-4 items-center flex-col sm:flex-row">
+            <Image
+              src="/aboutPhoto.png" // Replace with your photo path
+              alt="Alex Fernandes"
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-full h-auto"
+            />
+          </div>
+          <p className="text-[18px]">Welcome to my portfolio.</p>
+        </main>
+      </div>
+
+
+    </section>
+
+
+
+
+
+
   );
 };
