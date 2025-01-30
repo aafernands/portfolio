@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-const HeroSection = () => {
+export default function HeroSection() {
   return (
     <div
       className="relative grid grid-rows-[20px_1fr_0px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
@@ -11,12 +11,12 @@ const HeroSection = () => {
     >
       {/* Elliptical smooth background object behind hero section */}
       <div
-        className="absolute top-0 left-0 w-full h-[60%] bg-red-500 z-[-1]"
+        className="absolute top-0 left-0 w-full h-[60%] bg-black-500 z-[-1]"
         style={{
-          backgroundColor: "#1D2A35", // Custom color
+          // backgroundColor: "#1D2A35", 
 
-          borderRadius: "50% 50% 80% 20% / 0 0 50% 40% ", // Smooth, elliptical shape
-          transform: "scaleY(1.5)", // Stretch vertically to make it point downwards
+          // borderRadius: "50% 50% 80% 20% / 0 0 50% 40% ", // Smooth, elliptical shape
+          // transform: "scaleY(1.5)", // Stretch vertically to make it point downwards
         }}
       />
 
@@ -57,5 +57,3 @@ const HeroSection = () => {
     </div>
   );
 };
-
-export default HeroSection;

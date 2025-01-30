@@ -1,22 +1,28 @@
+/* ✅ Import Tailwind's base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ✅ Define CSS variables for light mode */
 :root {
   --background: #ffffff;
-  --foreground: #000000;
-  /* --foreground: #1D2A35; */
+  --foreground: #171717;
 }
 
+/* ✅ Dark mode variables (only needed if using system-based dark mode) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
-    --foreground: #ffffff;
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
+/* ✅ Apply colors and font to the body */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  /* ✅ Tailwind-based dark mode (only works if `darkMode: 'class'` is set in tailwind.config.ts) */
+  @apply bg-white text-black dark:bg-black dark:text-white;
 }

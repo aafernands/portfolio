@@ -1,6 +1,9 @@
+
+
+import "./globals.css";
+import { Providers } from './providers';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
@@ -48,13 +51,17 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar />
-        {children}
-        <Footer />
+        <Providers>
+
+          <NavBar />
+          {children}
+          <Footer />
+        </Providers>
+
       </body>
     </html>
   );
