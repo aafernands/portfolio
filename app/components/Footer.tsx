@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
 		<footer style={footerStyle}>
 			<div style={iconContainerStyle}>
 				<a
-					href="https://x.com"
+					href="https://x.com/alxdevlab"
 					target="_blank"
 					rel="noopener noreferrer"
 					style={iconStyle}
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
 					<FontAwesomeIcon icon={faTwitter} />
 				</a>
 				<a
-					href="https://instagram.com"
+					href="https://instagram.com/alxdevlab"
 					target="_blank"
 					rel="noopener noreferrer"
 					style={iconStyle}
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
 					<FontAwesomeIcon icon={faInstagram} />
 				</a>
 				<a
-					href="https://linkedin.com"
+					href="https://linkedin.com/in/aafernands"
 					target="_blank"
 					rel="noopener noreferrer"
 					style={iconStyle}

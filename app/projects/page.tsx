@@ -38,7 +38,7 @@ const projects = [
 
 const PortfolioSection = () => {
   return (
-    <div id="portfolio" className="py-12 bg-gray-100">
+    <div  id="portfolio" className=" min-h-screen flex items-center justify-center bg-gray-100">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-6">Portfolio</h2>
         <p className="text-center text-gray-600 mb-12">
