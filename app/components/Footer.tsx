@@ -11,42 +11,16 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 // Add the icons to the library
 library.add(faTwitter, faInstagram, faLinkedin);
 
-const footerStyle: React.CSSProperties = {
-	display: "flex",
-	flexDirection: "column",
-	alignItems: "center",
-	padding: "20px",
-	backgroundColor: "var(--foreground)", // Use foreground for the background
-	color: "var(--background)", // Use background for the text
-};
-
-const iconContainerStyle: React.CSSProperties = {
-	display: "flex",
-	justifyContent: "center",
-	gap: "20px",
-	marginBottom: "10px",
-};
-
-const iconStyle: React.CSSProperties = {
-	color: "var(--background)", // Use background for the icon color
-	fontSize: "24px",
-	textDecoration: "none",
-};
-
-const textStyle: React.CSSProperties = {
-	fontSize: "14px",
-	color: "var(--background)", // Use background for the text color
-};
 
 const Footer: React.FC = () => {
 	return (
-		<footer style={footerStyle}>
-			<div style={iconContainerStyle}>
+		<footer className="flex flex-col items-center p=20 bg-custom-light dark:bg-custom-dark ">
+			<div className="flex justify-center gap-x-8 gap-y-4 my-20">
 				<a
 					href="https://x.com/alxdevlab"
 					target="_blank"
 					rel="noopener noreferrer"
-					style={iconStyle}
+					className="text-black dark:text-white text-2xl"
 				>
 					<FontAwesomeIcon icon={faTwitter} />
 				</a>
@@ -54,7 +28,7 @@ const Footer: React.FC = () => {
 					href="https://instagram.com/alxdevlab"
 					target="_blank"
 					rel="noopener noreferrer"
-					style={iconStyle}
+					className="text-black dark:text-white text-2xl"
 				>
 					<FontAwesomeIcon icon={faInstagram} />
 				</a>
@@ -62,12 +36,12 @@ const Footer: React.FC = () => {
 					href="https://linkedin.com/in/aafernands"
 					target="_blank"
 					rel="noopener noreferrer"
-					style={iconStyle}
+					className="text-black dark:text-white text-2xl"
 				>
 					<FontAwesomeIcon icon={faLinkedin} />
 				</a>
 			</div>
-			<p style={textStyle}>
+			<p className="text-black dark:text-white text-1xl pb-5">
 				© {new Date().getFullYear()} Your Name. All rights reserved.
 			</p>
 		</footer>

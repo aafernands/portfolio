@@ -18,8 +18,8 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="bg-white [--pattern-fg:var(--color-gray-950)]/5 dark:bg-gray-950 dark:[--pattern-fg:var(--color-white)]/10 min-h-screen flex items-center justify-center py-8">
-            <div className="bg-gray-100  p-2 dark:bg-white/10 max-w-lg w-full p-6 rounded-lg shadow-lg">
+        <section id="contact" className="dark:bg-custom-linear bg-white [--pattern-fg:var(--color-gray-950)]/5 dark:bg-gray-950 dark:[--pattern-fg:var(--color-white)]/10 min-h-screen flex items-center justify-center py-8">
+            <div className="dark:border-gray-800 border-gray-300 border bg-custom-light dark:bg-custom-radial p-10 max-w-lg w-full rounded-lg shadow-lg">
                 <header className="text-center mb-6">
                     <h1 className="text-3xl font-semibold text-gray-700 dark:text-white">Contact Us</h1>
                 </header>
@@ -69,12 +69,12 @@ const Contact = () => {
                                 className="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                             />
                         </div>
-                        <button
-                            type="submit"
-                            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
+
+                        <button type="submit" className="border border-gray-300 dark:border-gray-300 shadow-md hover:bg-blue-900 focus:ring-4 rounded-lg focus:ring-blue-glow text-black dark:text-white text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-blue-glow hover:text-white hover:shadow-lg transition duration-300 ease-in-out">
                             Send Message
                         </button>
+
+
                     </form>
                 )}
             </div>

@@ -14,72 +14,102 @@ import Image from "next/image"; // Import next/image for image optimization
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isSystemTheme, setIsSystemTheme] = useState(false); // To track if the system theme is used
   const drawerRef = useRef<HTMLDivElement>(null); // Updated type
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
 
-  // Toggle dark mode manually
+  // Handle manual toggle for dark mode
   const handleToggleDarkMode = () => {
     const htmlElement = document.documentElement;
-    htmlElement.classList.toggle("dark");
-    setIsDarkMode(!isDarkMode); // Update dark mode state
+    if (isSystemTheme) {
+      // If system theme is active, toggle to manual dark mode
+      setIsSystemTheme(false);
+    } else {
+      // Toggle dark mode manually
+      htmlElement.classList.toggle("dark");
+      setIsDarkMode(!isDarkMode);
+      // Save the preference in localStorage
+      if (!isDarkMode) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    }
   };
 
 
+ // Listen to changes in the system theme preference
+ useEffect(() => {
+  // Check system preference on initial load
+  const savedTheme = localStorage.getItem("theme");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  // Close the drawer when clicking outside
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    setIsDarkMode(true);
+    setIsSystemTheme(false); // Manual theme
+  } else if (savedTheme === "light") {
+    document.documentElement.classList.remove("dark");
+    setIsDarkMode(false);
+    setIsSystemTheme(false); // Manual theme
+  } else {
+    // Respect system theme if no manual preference is set
+    document.documentElement.classList.toggle("dark", systemPrefersDark);
+    setIsDarkMode(systemPrefersDark);
+    setIsSystemTheme(true);
+  }
+}, []);
+
+  // Detect system theme preference changes
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        drawerRef.current &&
-        !drawerRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
+    const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      if (!isSystemTheme) {
+        // If system theme is active, update manually
+        document.documentElement.classList.toggle("dark", e.matches);
+        setIsDarkMode(e.matches);
       }
     };
 
-    if (isOpen) {
-      document.addEventListener("click", handleClickOutside);
-    } else {
-      document.removeEventListener("click", handleClickOutside);
-    }
+    mediaQueryList.addEventListener("change", handleSystemThemeChange);
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      mediaQueryList.removeEventListener("change", handleSystemThemeChange);
     };
-  }, [isOpen]);
+  }, [isSystemTheme]);
 
   return (
-    <nav
-      className="p-4"
+    <nav className="p-6 bg-custom-light dark:bg-custom-dark backdrop-blur-md bg-opacity-50 dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 shadow-lg"
+    // <nav className="p-4 bg-custom-light dark:bg-custom-dark backdrop-blur-md bg-opacity-50 dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 rounded-lg shadow-lg"
       style={{
-        color: isDarkMode ? "var(--background)" : "var(--foreground)",
-        backgroundColor: isDarkMode ? "var(--background)" : "var(--foreground)",
-        position: "fixed", // Fix navbar to the top
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 50, // Ensure navbar stays on top
-        margin: "10px", // Add margin around the navbar
-        borderRadius: "15px", // Rounded borders
+        zIndex: 50,
+        // margin: "10px",
+        // borderRadius: "15px",
         boxShadow: isDarkMode
-          ? "0 4px 8px rgba(6, 28, 28, 0.5), 0 0 10px rgba(29, 54, 54, 0.7)" // Glowing turquoise shadow in dark mode
-          : "0 4px 8px rgba(0, 0, 0, 0.2)", // Regular shadow in light mode
+          ? "0 4px 8px rgb(0, 28, 75), 0 0 10px rgb(0, 28, 75)" // Glowing turquoise shadow
+          : "0 4px 8px rgba(0, 0, 0, 0.5)", // Light mode shadow
       }}
+
     >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo Section */}
-        <div className="flex items-center space-x-4">
+      {/* Logo Section */}
+        <div className=" flex items-center space-x-4">
           <div>
             <Link href="/">
               <Image
-                src={isDarkMode ? "/logo-light.png" : "/logo-dark.png"}
+                src={isDarkMode ? "/logo-dark.png" : "/logo-light.png"}
                 alt="Logo"
                 className="h-10 w-20"
-                width={100} // Specify the width
-                height={50} // Specify the height
+                width={200} // Specify the width
+                height={100} // Specify the height
               />
             </Link>
           </div>
@@ -90,22 +120,23 @@ const NavBar = () => {
           {/* Dark Mode Toggle Button */}
           <button
             onClick={handleToggleDarkMode}
-            className="text-white"
+            className="text-white text-3xl"
             style={{
               background: "transparent",
               border: "none",
               cursor: "pointer",
+              padding: "10px"
             }}
           >
             {isDarkMode ? (
               <FontAwesomeIcon
                 icon={faSun}
-                style={{ color: "var(--foreground)" }} // Sun icon for light mode
+                style={{ color: "white" }} // Sun icon for light mode
               />
             ) : (
               <FontAwesomeIcon
                 icon={faMoon}
-                style={{ color: "var(--background)" }} // Moon icon for dark mode
+                style={{ color: "black" }} // Moon icon for dark mode
               />
             )}
           </button>
@@ -115,17 +146,17 @@ const NavBar = () => {
             {isDarkMode ? (
               <FontAwesomeIcon
                 icon={isOpen ? faTimes : faBars}
-                className="text-3xl"
+                className="text-4xl "
                 style={{
-                  color: "var(--foreground)",
+                  color: "",
                 }}
               />
             ) : (
               <FontAwesomeIcon
                 icon={isOpen ? faTimes : faBars} // Menu light mode
-                className="text-3xl"
+                className="text-4xl"
                 style={{
-                  color: "var(--background)",
+                  color: "black",
                 }} // Menu dark mode
               />
             )}

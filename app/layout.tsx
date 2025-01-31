@@ -58,7 +58,7 @@ export default function RootLayout({
         <Providers>
 
           <NavBar />
-          <main className="container mx-auto p-4">
+          <main className="container mx-auto px-6">
             {children}</main>
           <Footer />
         </Providers>

@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons"; // Import download icon
 
 const skills = [
     'HTML5',
@@ -17,7 +19,7 @@ const skills = [
 export default function About() {
     return (
         <section id="about" className="dark:bg-black py-16 px-4 sm:px-6 lg:px-8">
-            <div className="dark:bg-blue-500 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="dark:bg-black max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 {/* Left: Photo and Intro */}
                 <article className="text-center md:text-left">
                     <Image
@@ -52,6 +54,14 @@ export default function About() {
                             </li>
                         ))}
                     </ul>
+                    <a
+      href="/cv.pdf" // Path to your CV file in the public folder
+      download="Alex_Fernandes_CV.pdf" // Suggested filename for download
+      className="inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300"
+    >
+      <FontAwesomeIcon icon={faDownload} className="mr-2" />
+      Download CV
+    </a>
                 </section>
             </div>
         </section>
