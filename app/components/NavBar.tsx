@@ -116,11 +116,11 @@ const NavBar = () => {
         </div>
 
         {/* Dark Mode Toggle and Menu Icon */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
           {/* Dark Mode Toggle Button */}
           <button
             onClick={handleToggleDarkMode}
-            className="text-white text-3xl"
+            className="text-white text-2xl"
             style={{
               background: "transparent",
               border: "none",
@@ -131,12 +131,12 @@ const NavBar = () => {
             {isDarkMode ? (
               <FontAwesomeIcon
                 icon={faSun}
-                style={{ color: "white" }} // Sun icon for light mode
+                style={{ color: "white" }} 
               />
             ) : (
               <FontAwesomeIcon
                 icon={faMoon}
-                style={{ color: "black" }} // Moon icon for dark mode
+                style={{ color: "black" }}
               />
             )}
           </button>
@@ -146,7 +146,7 @@ const NavBar = () => {
             {isDarkMode ? (
               <FontAwesomeIcon
                 icon={isOpen ? faTimes : faBars}
-                className="text-4xl "
+                className="text-3xl "
                 style={{
                   color: "",
                 }}
@@ -154,7 +154,7 @@ const NavBar = () => {
             ) : (
               <FontAwesomeIcon
                 icon={isOpen ? faTimes : faBars} // Menu light mode
-                className="text-4xl"
+                className="text-3xl"
                 style={{
                   color: "black",
                 }} // Menu dark mode

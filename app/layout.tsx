@@ -21,7 +21,8 @@ export const metadata: Metadata = {
   title: "Alex Fernandes | Portfolio",
   description:
     "Web Developer Portfolio showcasing projects, skills, and experience.",
-  keywords:
+    viewport: "width=device-width, initial-scale=1.0",
+    keywords:
     "web developer, portfolio, Alex Fernandes, React, JavaScript, Next.js, HTML, CSS, web development",
   openGraph: {
     title: "Alex Fernandes | Portfolio",

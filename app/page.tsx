@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen relative">
-      <section className="w-full max-w-3xl text-center">
+      <section className=" text-center">
         <HeroSection />
         <AboutSection />
         <ProjectsSection />

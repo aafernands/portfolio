@@ -39,46 +39,50 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-
-    <section id="about" className="dark:bg-black py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="mt-8 text-3xl font-bold text-gray-900 dark:text-gray-100">Portfolio</h2>
-        <p className="text-center text-gray-600 mb-12">
+    <section id="projects" className="dark:bg-black py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto text-center">
+      <h2 className="mt-8 text-3xl font-bold text-gray-900 dark:text-gray-100 p-10">Projects</h2>
+      <p className="text-gray-600 dark:text-gray-300 mb-12">
           Explore some of our creative and innovative projects. Each project is
           designed with care and attention to detail.
         </p>
+
+        {/* Grid Layout: Adjusts based on screen size */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
-              <Image width="0"
-                height="0"
-                sizes="100vw" src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-              <div className="p-4 text-center">
-                <h3 className="text-black text-lg font-semibold">{project.title}</h3>
-                <p className="text-gray-600 text-sm">{project.description}</p>
+            <div 
+              key={index} 
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105"
+            >
+              {/* Project Image */}
+              <Image 
+                src={project.image} 
+                alt={project.title} 
+                width={200} 
+                height={200} 
+                className="w-full h-48 object-cover"
+              />
+              
+              {/* Project Details */}
+              <div className="p-6 text-center">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">{project.description}</p>
+                
+                {/* Buttons: Live Demo & GitHub */}
                 <div className="flex justify-center gap-4 mt-4">
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <a 
+                    href={project.liveDemo} 
+                    target="_blank" 
+                    className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300"
                   >
-                    <button
-                      className="border border-black  shadow-md hover:bg-blue-900 focus:ring-4 rounded-lg focus:ring-blue-glow text-black text-sm px-5 py-2.5 hover:text-white hover:shadow-lg transition duration-300 ease-in-out"
-                    >
-                      Live Demo
-                    </button>
+                    Live Demo
                   </a>
-
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <a 
+                    href={project.githubLink} 
+                    target="_blank" 
+                    className="bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-900 transition-all duration-300"
                   >
-                    <button
-                      className="border border-black  shadow-md hover:bg-blue-900 focus:ring-4 rounded-lg focus:ring-blue-glow text-black  text-sm px-5 py-2.5 hover:text-white hover:shadow-lg transition duration-300 ease-in-out"
-                    >
-                      GitHub
-                    </button>
+                    GitHub
                   </a>
                 </div>
               </div>
@@ -86,7 +90,6 @@ const ProjectsSection = () => {
           ))}
         </div>
       </div>
-
     </section>
   );
 };
