@@ -23,7 +23,7 @@ export default function About() {
                 {/* Left: Photo and Intro */}
                 <article className="text-center md:text-left">
                     <Image
-                        src="/aboutPhoto.png" // Replace with your photo path
+                        src="/aboutPhoto.png"
                         alt="Alex Fernandes"
                         width="0"
                         height="0"

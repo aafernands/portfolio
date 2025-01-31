@@ -1,17 +1,30 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import Image from "next/image"; // Import next/image for image optimization
 
 // Add the icons to the library
 library.add(faTwitter, faInstagram, faLinkedin);
 
 const Footer: React.FC = () => {
+
+	const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+	useEffect(() => {
+		setCurrentYear(new Date().getFullYear());
+	}, []);
+
+
+
 	return (
 		<footer className="flex flex-col items-center py-10 bg-custom-light dark:bg-custom-dark">
 			<div className="flex flex-col items-center lg:flex-row lg:justify-between lg:w-2/3 mb-10">
 				<div className="flex items-center space-x-4 mb-4 lg:mb-0">
-					<img src="/aboutPhoto.png" alt="Profile" className="w-20 h-20 rounded-full" />
+					<Image width={200}
+						height={100} src="/aboutPhoto.png" alt="Profile" className="w-20 h-20 rounded-full" />
 					<div className="flex flex-col">
 						<p className="text-black dark:text-white text-lg">Alex Fernandes</p>
 						<p className="text-black dark:text-white text-sm">Web Developer</p>
@@ -51,7 +64,7 @@ const Footer: React.FC = () => {
 				</div>
 			</div>
 			<p className="text-black dark:text-white text-sm pb-5">
-				© {new Date().getFullYear()} Alex Fernandes. All rights reserved.
+				© {currentYear ?? "Loading..."} Alex Fernandes. All rights reserved.
 			</p>
 		</footer>
 	);
