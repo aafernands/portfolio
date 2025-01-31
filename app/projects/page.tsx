@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 
 const projects = [
   {
@@ -39,7 +40,7 @@ const projects = [
 const PortfolioSection = () => {
   return (
     <div  id="portfolio" className=" min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-6">Portfolio</h2>
         <p className="text-center text-gray-600 mb-12">
           Explore some of our creative and innovative projects. Each project is
@@ -48,7 +49,7 @@ const PortfolioSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
-              <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+              <Image src={project.image} alt={project.title} className="w-full h-48 object-cover" />
               <div className="p-4 text-center">
                 <h3 className="text-lg font-semibold">{project.title}</h3>
                 <p className="text-gray-600 text-sm">{project.description}</p>

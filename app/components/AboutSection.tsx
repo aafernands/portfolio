@@ -18,7 +18,7 @@ const skills = [
 
 export default function About() {
     return (
-        <section id="about" className="dark:bg-black py-16 px-4 sm:px-6 lg:px-8">
+        <section id="about" className="dark:bg-black py-16 px-4 sm:px-3 lg:px-4">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 
                 {/* Left: Photo and Intro */}
@@ -58,16 +58,12 @@ export default function About() {
 
                     {/* Download CV Button */}
                     <div className=" mt-6 p-20">
-                       <a
-                        href="/cv.pdf"
-                        download="Alex_Fernandes_CV.pdf"
-                        className=" mt-6 inline-flex items-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300"
-                    >
-                        <FontAwesomeIcon icon={faDownload} className="mr-2" />
-                        Download CV
-                    </a> 
+                      
                     </div>
-                    
+                    <a href="/cv.pdf" type="submit" className="border border-gray-300 dark:border-gray-300 shadow-md hover:bg-blue-900 focus:ring-4 rounded-lg focus:ring-blue-glow text-black dark:text-white text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-blue-glow hover:text-white hover:shadow-lg transition duration-300 ease-in-out">
+                    <FontAwesomeIcon icon={faDownload} className="mr-2" />
+                    Download CV
+                        </a>
                 </section>
             </div>
         </section>
