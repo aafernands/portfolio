@@ -73,14 +73,14 @@ const ProjectsSection = () => {
                   <a 
                     href={project.liveDemo} 
                     target="_blank" 
-                    className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300"
+                    className="border border-gray-300 dark:border-gray-300 shadow-md hover:bg-blue-900 focus:ring-4 rounded-lg focus:ring-blue-glow text-black dark:text-white text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-blue-glow hover:text-white hover:shadow-lg transition duration-300 ease-in-out"
                   >
                     Live Demo
                   </a>
                   <a 
                     href={project.githubLink} 
                     target="_blank" 
-                    className="bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-900 transition-all duration-300"
+                    className="border border-gray-300 dark:border-gray-300 shadow-md hover:bg-blue-900 focus:ring-4 rounded-lg focus:ring-blue-glow text-black dark:text-white text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-blue-glow hover:text-white hover:shadow-lg transition duration-300 ease-in-out"
                   >
                     GitHub
                   </a>
