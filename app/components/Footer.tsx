@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
 			<div className="flex flex-col items-center lg:flex-row lg:justify-between lg:w-2/3 mb-10">
 				<div className="flex items-center space-x-4 mb-4 lg:mb-0">
 					<Image width={200}
-						height={100} src="/aboutPhoto.png" alt="Profile" className="w-20 h-20 rounded-full" />
+						height={100} src="/aboutPhoto2.png" alt="Profile" className="w-20 h-20 rounded-full" />
 					<div className="flex flex-col">
 						<p className="text-black dark:text-white text-lg">Alex Fernandes</p>
 						<p className="text-black dark:text-white text-sm">Web Developer</p>
