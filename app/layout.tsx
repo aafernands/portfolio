@@ -53,6 +53,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+      <script
+					src="https://code.tidio.co/sf7zqeagqkbig5d56iqlot3fq8nygg0k.js"
+					async
+				></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
