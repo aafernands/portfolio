@@ -41,27 +41,27 @@ const NavBar = () => {
   };
 
 
- // Listen to changes in the system theme preference
- useEffect(() => {
-  // Check system preference on initial load
-  const savedTheme = localStorage.getItem("theme");
-  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  // Listen to changes in the system theme preference
+  useEffect(() => {
+    // Check system preference on initial load
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  if (savedTheme === "dark") {
-    document.documentElement.classList.add("dark");
-    setIsDarkMode(true);
-    setIsSystemTheme(false); // Manual theme
-  } else if (savedTheme === "light") {
-    document.documentElement.classList.remove("dark");
-    setIsDarkMode(false);
-    setIsSystemTheme(false); // Manual theme
-  } else {
-    // Respect system theme if no manual preference is set
-    document.documentElement.classList.toggle("dark", systemPrefersDark);
-    setIsDarkMode(systemPrefersDark);
-    setIsSystemTheme(true);
-  }
-}, []);
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      setIsDarkMode(true);
+      setIsSystemTheme(false); // Manual theme
+    } else if (savedTheme === "light") {
+      document.documentElement.classList.remove("dark");
+      setIsDarkMode(false);
+      setIsSystemTheme(false); // Manual theme
+    } else {
+      // Respect system theme if no manual preference is set
+      document.documentElement.classList.toggle("dark", systemPrefersDark);
+      setIsDarkMode(systemPrefersDark);
+      setIsSystemTheme(true);
+    }
+  }, []);
 
   // Detect system theme preference changes
   useEffect(() => {
@@ -83,8 +83,8 @@ const NavBar = () => {
   }, [isSystemTheme]);
 
   return (
-    <nav className="p-6 bg-custom-light dark:bg-custom-dark backdrop-blur-md bg-opacity-50 dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 shadow-lg"
-    // <nav className="p-4 bg-custom-light dark:bg-custom-dark backdrop-blur-md bg-opacity-50 dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 rounded-lg shadow-lg"
+    <nav className="p-3 bg-custom-light dark:bg-custom-dark backdrop-blur-md bg-opacity-50 dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 shadow-lg"
+      // <nav className="p-4 bg-custom-light dark:bg-custom-dark backdrop-blur-md bg-opacity-50 dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 rounded-lg shadow-lg"
       style={{
         position: "fixed",
         top: 0,
@@ -100,7 +100,7 @@ const NavBar = () => {
 
     >
       <div className="container mx-auto flex justify-between items-center">
-      {/* Logo Section */}
+        {/* Logo Section */}
         <div className=" flex items-center space-x-4">
           <div>
             <Link href="/">
@@ -114,45 +114,45 @@ const NavBar = () => {
             </Link>
           </div>
         </div>
-  {/* Desktop Navigation Links */}
-  <div className="hidden items-end md:flex space-x-4">
-        <Link
-          href="/"
-          className="hover:text-white"
-          style={{
-            color: isDarkMode ? "var(--foreground)" : "var(--background)",
-          }}
-        >
-          Home
-        </Link>
-        <Link
-          href="#about"
-          className="hover:text-white"
-          style={{
-            color: isDarkMode ? "var(--foreground)" : "var(--background)",
-          }}
-        >
-          About
-        </Link>
-        <Link
-          href="#projects"
-          className="hover:text-white"
-          style={{
-            color: isDarkMode ? "var(--foreground)" : "var(--background)",
-          }}
-        >
-          Projects
-        </Link>
-        <Link
-          href="#contact"
-          className="hover:text-white"
-          style={{
-            color: isDarkMode ? "var(--foreground)" : "var(--background)",
-          }}
-        >
-          Contact
-        </Link>
-      </div>
+        {/* Desktop Navigation Links */}
+        <div className="hidden items-end md:flex space-x-4">
+          <Link
+            href="/"
+            className="hover:text-white"
+            style={{
+              color: isDarkMode ? "var(--foreground)" : "var(--background)",
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            href="#about"
+            className="hover:text-white"
+            style={{
+              color: isDarkMode ? "var(--foreground)" : "var(--background)",
+            }}
+          >
+            About
+          </Link>
+          <Link
+            href="#projects"
+            className="hover:text-white"
+            style={{
+              color: isDarkMode ? "var(--foreground)" : "var(--background)",
+            }}
+          >
+            Projects
+          </Link>
+          <Link
+            href="#contact"
+            className="hover:text-white"
+            style={{
+              color: isDarkMode ? "var(--foreground)" : "var(--background)",
+            }}
+          >
+            Contact
+          </Link>
+        </div>
         {/* Dark Mode Toggle and Menu Icon */}
         <div className="flex items-center space-x-3">
           {/* Dark Mode Toggle Button */}
@@ -169,7 +169,7 @@ const NavBar = () => {
             {isDarkMode ? (
               <FontAwesomeIcon
                 icon={faSun}
-                style={{ color: "white" }} 
+                style={{ color: "white" }}
               />
             ) : (
               <FontAwesomeIcon
@@ -178,6 +178,13 @@ const NavBar = () => {
               />
             )}
           </button>
+          {/* Overlay when drawer is open */}
+          {isOpen && (
+            <div
+            className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-20"
+            onClick={toggleDrawer} // Close drawer when overlay is clicked
+            />
+          )}
 
           {/* Mobile Menu Button */}
           <button onClick={toggleDrawer} className="block md:hidden lg:hidden text-white">
@@ -202,15 +209,8 @@ const NavBar = () => {
         </div>
       </div>
 
-    
 
-      {/* Overlay when drawer is open */}
-      {isOpen && (
-        <div
-          className="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 z-20"
-          onClick={toggleDrawer} // Close drawer when overlay is clicked
-        />
-      )}
+
 
       {/* Sliding Drawer */}
       <div
@@ -220,26 +220,26 @@ const NavBar = () => {
         style={{
           backgroundColor: isDarkMode
             ? "var(--background)"
-            : "var(--background)", // Tray background color
-          color: isDarkMode ? "var(--foreground)" : "var(--foreground)", // Tray text color
+            : "var(--foreground)", // Tray background color
+            color: isDarkMode ? "var(--background)" : "var(--background)",
         }}
       >
-        <button
+        {/* <button
           onClick={toggleDrawer}
           className="p-4 absolute top-4 right-4"
           style={{
-            color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+            color: isDarkMode ? "var(--background)" : "var(--background)",
           }}
         >
           <FontAwesomeIcon icon={faTimes} size="lg" />
-        </button>
+        </button> */}
         <div className="justify-start	 p-4 space-y-4">
           <Link
             href="/"
             onClick={toggleDrawer}
             className="block"
             style={{
-              color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+              color: isDarkMode ? "var(--foreground)" : "var(--background)",
             }}
           >
             Home
@@ -249,7 +249,7 @@ const NavBar = () => {
             onClick={toggleDrawer}
             className="block"
             style={{
-              color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+              color: isDarkMode ? "var(--foreground)" : "var(--background)",
             }}
           >
             About
@@ -259,7 +259,7 @@ const NavBar = () => {
             onClick={toggleDrawer}
             className="block"
             style={{
-              color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+              color: isDarkMode ? "var(--foreground)" : "var(--background)",
             }}
           >
             Projects
@@ -269,7 +269,7 @@ const NavBar = () => {
             onClick={toggleDrawer}
             className="block"
             style={{
-              color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+              color: isDarkMode ? "var(--foreground)" : "var(--background)",
             }}
           >
             Contact
