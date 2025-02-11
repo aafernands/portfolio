@@ -14,7 +14,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="dark:bg-black py-14 px-6">
+    <section className="dark:bg-black py-9 px-2">
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16 min-h-screen p-8 pb-20 sm:p-20">
         
         {/* Left: Image */}
