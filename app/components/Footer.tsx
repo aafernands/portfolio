@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faXTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import Image from "next/image"; // Import next/image for image optimization
 
 // Add the icons to the library
-library.add(faTwitter, faInstagram, faLinkedin);
+library.add(faXTwitter, faInstagram, faLinkedin);
 
 const Footer: React.FC = () => {
 
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
 							rel="noopener noreferrer"
 							className="text-black dark:text-white text-2xl"
 						>
-							<FontAwesomeIcon icon={faTwitter} />
+							<FontAwesomeIcon icon={faXTwitter} />
 						</a>
 						<a
 							href="https://instagram.com/alxdevlab"

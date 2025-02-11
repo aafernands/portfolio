@@ -13,6 +13,7 @@ import Image from "next/image"; // Import next/image for image optimization
 import {
   faInstagram,
   faLinkedin,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
 const NavBar = () => {
@@ -278,11 +279,14 @@ const NavBar = () => {
         </div>
         {/* Social Media Section */}
         <div className="mt-80 bg-custom-light dark:bg-custom-dark flex justify-center space-x-6 pb-6">
-          <Link href="https://instagram.com" target="_blank">
+          <Link href="https://instagram.com/alxdevlab" target="_blank">
             <FontAwesomeIcon icon={faInstagram} size="lg" className="hover:text-gray-400 transition-all" />
           </Link>
-          <Link href="https://linkedin.com" target="_blank">
+          <Link href="https://linkedin.com/in/aafernands" target="_blank">
             <FontAwesomeIcon icon={faLinkedin} size="lg" className="hover:text-gray-400 transition-all" />
+          </Link>
+          <Link href="https://x.com/alxdevlab" target="_blank">
+            <FontAwesomeIcon icon={faXTwitter} size="lg" className="hover:text-gray-400 transition-all" />
           </Link>
         </div>
       </div>
