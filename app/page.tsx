@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen relative">
-      <section className=" text-center">
+      <section className="text-center">
         <HeroSection />
         <AboutSection />
         <ProjectsSection />

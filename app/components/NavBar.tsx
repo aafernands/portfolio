@@ -10,6 +10,10 @@ import {
   faSun,
 } from "@fortawesome/free-solid-svg-icons"; // Import sun and moon icons
 import Image from "next/image"; // Import next/image for image optimization
+import {
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -178,13 +182,6 @@ const NavBar = () => {
               />
             )}
           </button>
-          {/* Overlay when drawer is open */}
-          {isOpen && (
-            <div
-            className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-20"
-            onClick={toggleDrawer} // Close drawer when overlay is clicked
-            />
-          )}
 
           {/* Mobile Menu Button */}
           <button onClick={toggleDrawer} className="block md:hidden lg:hidden text-white">
@@ -208,75 +205,90 @@ const NavBar = () => {
           </button>
         </div>
       </div>
-
-
-
-
+      {/* Overlay when drawer is open */}
+      {isOpen && (
+        <div
+          className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-20"
+          onClick={toggleDrawer} // Close drawer when overlay is clicked
+        />
+      )}
       {/* Sliding Drawer */}
       <div
-        ref={drawerRef} // Drawer ref
-        className={`fixed top-0 left-0 h-screen w-64 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+        ref={drawerRef}
+        className={`bg-custom-light dark:bg-custom-dark fixed top-0 right-0 h-screen w-64 transform ${isOpen ? "translate-x-0" : "translate-x-full"
           } transition-transform duration-300 ease-in-out z-30`} // Drawer z-index higher than overlay
         style={{
-          backgroundColor: isDarkMode
-            ? "var(--background)"
-            : "var(--foreground)", // Tray background color
-            color: isDarkMode ? "var(--background)" : "var(--background)",
+          // backgroundColor: isDarkMode
+          //   ? "var(--background)"
+          //   : "var(--foreground)", // Tray background color
+          // color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
         }}
       >
-        {/* <button
+        <button
           onClick={toggleDrawer}
-          className="p-4 absolute top-4 right-4"
-          style={{
-            color: isDarkMode ? "var(--background)" : "var(--background)",
-          }}
+          className="bg-custom-light dark:bg-custom-dark p-4 absolute top-4 right-4"
+        // style={{
+        //   color: isDarkMode ? "var(--backgrpoun)" : "var(--background)",
+        // }}
         >
           <FontAwesomeIcon icon={faTimes} size="lg" />
-        </button> */}
-        <div className="justify-start	 p-4 space-y-4">
+        </button>
+        <div className="mt-20 justify-start	 p-4 space-y-4">
           <Link
             href="/"
             onClick={toggleDrawer}
-            className="block"
-            style={{
-              color: isDarkMode ? "var(--foreground)" : "var(--background)",
-            }}
+            className="bg-custom-light dark:bg-custom-dark block border-b dark:border-gray-800"
+          // style={{
+          //   color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+          // }}
           >
             Home
           </Link>
           <Link
             href="#about"
             onClick={toggleDrawer}
-            className="block"
-            style={{
-              color: isDarkMode ? "var(--foreground)" : "var(--background)",
-            }}
+            className="bg-custom-light dark:bg-custom-dark block border-b dark:border-gray-800"
+          // style={{
+          //   color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+          // }}
           >
             About
           </Link>
           <Link
             href="#projects"
             onClick={toggleDrawer}
-            className="block"
-            style={{
-              color: isDarkMode ? "var(--foreground)" : "var(--background)",
-            }}
+            className="bg-custom-light dark:bg-custom-dark block border-b dark:border-gray-800"
+          // style={{
+          //   color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+          // }}
           >
             Projects
           </Link>
           <Link
             href="#contact"
             onClick={toggleDrawer}
-            className="block"
-            style={{
-              color: isDarkMode ? "var(--foreground)" : "var(--background)",
-            }}
+            className="bg-custom-light dark:bg-custom-dark block border-b dark:border-gray-800"
+          // style={{
+          //   color: isDarkMode ? "var(--foreground)" : "var(--foreground)",
+          // }}
           >
             Contact
           </Link>
+
+        </div>
+        {/* Social Media Section */}
+        <div className="mt-80 bg-custom-light dark:bg-custom-dark flex justify-center space-x-6 pb-6">
+          <Link href="https://instagram.com" target="_blank">
+            <FontAwesomeIcon icon={faInstagram} size="lg" className="hover:text-gray-400 transition-all" />
+          </Link>
+          <Link href="https://linkedin.com" target="_blank">
+            <FontAwesomeIcon icon={faLinkedin} size="lg" className="hover:text-gray-400 transition-all" />
+          </Link>
         </div>
       </div>
+
     </nav>
+
   );
 };
 

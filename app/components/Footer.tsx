@@ -31,8 +31,8 @@ const Footer: React.FC = () => {
 					</div>
 				</div>
 				<div className="flex flex-col items-center lg:items-start">
-					<p className="text-black dark:text-white text-lg">
-						Get in touch <span>&#x27A4;</span>
+					<p className="p=20 text-black dark:text-white text-lg">
+						Get in touch
 					</p>
 					<p className="text-black dark:text-white text-sm">Email me: contact@alxdevlab.com</p>
 					<div className="flex justify-center gap-x-8 gap-y-4 py-10 mb-10">

@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'custom-dark': '#0A0A0A', // Custom color for dark mode
-        'custom-light': '#FAFAFA', // Custom color for light mode
+        'custom-dark': '#000000', // Custom color for dark mode
+        'custom-light': '#FFFFFF', // Custom color for light mode 
         "custom-blue": "rgb(235, 252, 0)", // Define custom text color
 
       },
