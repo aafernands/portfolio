@@ -114,7 +114,45 @@ const NavBar = () => {
             </Link>
           </div>
         </div>
-
+  {/* Desktop Navigation Links */}
+  <div className="hidden items-end md:flex space-x-4">
+        <Link
+          href="/"
+          className="hover:text-white"
+          style={{
+            color: isDarkMode ? "var(--foreground)" : "var(--background)",
+          }}
+        >
+          Home
+        </Link>
+        <Link
+          href="#about"
+          className="hover:text-white"
+          style={{
+            color: isDarkMode ? "var(--foreground)" : "var(--background)",
+          }}
+        >
+          About
+        </Link>
+        <Link
+          href="#projects"
+          className="hover:text-white"
+          style={{
+            color: isDarkMode ? "var(--foreground)" : "var(--background)",
+          }}
+        >
+          Projects
+        </Link>
+        <Link
+          href="#contact"
+          className="hover:text-white"
+          style={{
+            color: isDarkMode ? "var(--foreground)" : "var(--background)",
+          }}
+        >
+          Contact
+        </Link>
+      </div>
         {/* Dark Mode Toggle and Menu Icon */}
         <div className="flex items-center space-x-3">
           {/* Dark Mode Toggle Button */}
@@ -142,7 +180,7 @@ const NavBar = () => {
           </button>
 
           {/* Mobile Menu Button */}
-          <button onClick={toggleDrawer} className="text-white">
+          <button onClick={toggleDrawer} className="block md:hidden lg:hidden text-white">
             {isDarkMode ? (
               <FontAwesomeIcon
                 icon={isOpen ? faTimes : faBars}
@@ -164,45 +202,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Desktop Navigation Links */}
-      <div className="hidden md:flex space-x-4">
-        <Link
-          href="/"
-          className="hover:text-white"
-          style={{
-            color: isDarkMode ? "var(--background)" : "var(--foreground)",
-          }}
-        >
-          Home
-        </Link>
-        <Link
-          href="#about"
-          className="hover:text-white"
-          style={{
-            color: isDarkMode ? "var(--background)" : "var(--foreground)",
-          }}
-        >
-          About
-        </Link>
-        <Link
-          href="#projects"
-          className="hover:text-white"
-          style={{
-            color: isDarkMode ? "var(--background)" : "var(--foreground)",
-          }}
-        >
-          Projects
-        </Link>
-        <Link
-          href="#contact"
-          className="hover:text-white"
-          style={{
-            color: isDarkMode ? "var(--background)" : "var(--foreground)",
-          }}
-        >
-          Contact
-        </Link>
-      </div>
+    
 
       {/* Overlay when drawer is open */}
       {isOpen && (
@@ -233,7 +233,7 @@ const NavBar = () => {
         >
           <FontAwesomeIcon icon={faTimes} size="lg" />
         </button>
-        <div className="p-4 space-y-4">
+        <div className="justify-start	 p-4 space-y-4">
           <Link
             href="/"
             onClick={toggleDrawer}
