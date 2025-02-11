@@ -25,7 +25,7 @@ export default function HeroSection() {
             width={500}
             height={500}
             sizes="80vw"
-            className="rounded-lg shadow-lg w-full h-auto"
+            className="rounded-lg w-full h-auto"
           />
         </div>
 
@@ -47,7 +47,7 @@ export default function HeroSection() {
           transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
           onClick={scrollToSection}
         >
-          <FaChevronDown className="text-black dark:text-white text-4xl animate-pulse shadow-blue-glow" />
+          <FaChevronDown className="text-black dark:text-white text-4xl animate-pulse" />
         </motion.div>
       </div>
     </section>
