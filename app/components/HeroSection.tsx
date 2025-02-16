@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
-import { motion } from "framer-motion"; // Direct import
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   const scrollToSection = () => {
@@ -14,18 +14,36 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="dark:bg-black py-9 px-2">
-      <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16 min-h-screen p-8 pb-20 sm:p-20">
+    <section className="relative dark:bg-black py-9 px-2 overflow-hidden min-h-screen flex items-center">
+      {/* Aurora Animated Background */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <motion.div
+          className="absolute w-[300%] h-[300%] bg-[radial-gradient(circle_at_50%_50%,rgba(255,77,77,0.3),rgba(26,115,232,0.3),rgba(142,68,173,0.3),transparent)]"
+          animate={{
+            x: ["0%", "0%", "0%"], // Moves left and right
+            y: ["-20%", "20%", "-20%"], // Moves up and down
+            scale: [1, 1.3, 1], // Pulsates in size
+            rotate: [0, 0, 0], // Slight rotation effect
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 30, // Smooth aurora movement speed
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16 p-8 pb-20 sm:p-20">
         
-        {/* Left: Image */}
-        <div className="flex justify-center">
+        {/* Left: Profile Image */}
+        <div className="relative flex justify-center items-center">
           <Image
-            src="/aboutPhoto.png" // Replace with your photo path
+            src="/aboutPhoto.png"
             alt="Alex Fernandes"
             width={500}
             height={500}
             sizes="80vw"
-            className="rounded-lg w-full h-auto"
+            className="rounded-full w-[250px] h-[250px] border-4 border-white shadow-lg"
           />
         </div>
 
@@ -43,11 +61,11 @@ export default function HeroSection() {
         {/* Pulsating Arrow */}
         <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
-          animate={{ y: [0, 10, 0] }} // Pulsating effect
+          animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
           onClick={scrollToSection}
         >
-          <FaChevronDown className="text-black dark:text-white text-4xl animate-pulse" />
+          <FaChevronDown className="text-white text-4xl animate-pulse" />
         </motion.div>
       </div>
     </section>
