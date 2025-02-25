@@ -55,7 +55,7 @@ export default function HeroSection() {
             FERNANDES
           </h1>
           <p className="text-[14px]">THE JOURNEY OF A FRONT-END WEB DEVELOPER</p>
-          <p className="text-[18px]">Welcome to my portfolio.</p>
+          <p className="text-[18px]">Welcome to my portfolio!</p>
         </div>
 
         {/* Pulsating Arrow */}
