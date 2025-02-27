@@ -34,7 +34,7 @@ export default function About() {
 
                     <h2 className="mt-8 text-3xl font-bold text-gray-900 dark:text-gray-100 p-10">About Me</h2>
                     <p className="text-[16px] text-gray-700 dark:text-gray-300">
-                        Hi, I am Alex Fernandes, a skilled web developer with expertise in
+                        Hi there, I am Alex Fernandes, a skilled web developer with expertise in
                         React, Next.js, HTML5, CSS3, JavaScript, jQuery, Bootstrap, Node.js,
                         MySQL, and MongoDB. I specialize in creating high-performance,
                         scalable web applications, delivering responsive and efficient
