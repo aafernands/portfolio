@@ -34,7 +34,7 @@ export default function HeroSection() {
       </div>
 
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16 p-8 pb-20 sm:p-20">
-        
+
         {/* Left: Profile Image */}
         <div className="relative flex justify-center items-center">
           <Image
@@ -56,18 +56,20 @@ export default function HeroSection() {
           </h1>
           <p className="text-[14px]">THE JOURNEY OF A FRONT-END WEB DEVELOPER</p>
           <p className="text-[18px]">Welcome to my portfolio!</p>
-        </div>
 
-        {/* Pulsating Arrow */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-          onClick={scrollToSection}
-        >
-          <FaChevronDown className="text-white text-4xl animate-pulse" />
-        </motion.div>
+        </div>
       </div>
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex justify-center cursor-pointer"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+        onClick={scrollToSection}
+      >
+        <FaChevronDown className="text-white text-4xl animate-pulse" />
+      </motion.div>
+
+
     </section>
+
   );
 }
