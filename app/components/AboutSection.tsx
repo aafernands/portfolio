@@ -25,7 +25,7 @@ export default function About() {
                 <article className="text-center md:text-left">
                     {/* <Image
                         src="/aboutPhoto.png"
-                        alt="Alex Fernandes"
+                        alt="Alex F."
                         width="0"
                         height="0"
                         sizes="100vw"

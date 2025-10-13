@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
 					<Image width={200}
 						height={100} src="/aboutPhoto2.png" alt="Profile" className="w-20 h-20 rounded-full" />
 					<div className="flex flex-col">
-						<p className="text-black dark:text-white text-lg">Alex Fernandes</p>
+						<p className="text-black dark:text-white text-lg">Alex F.</p>
 						<p className="text-black dark:text-white text-sm">Web Developer</p>
 					</div>
 				</div>
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
 					<p className="p=20 text-black dark:text-white text-lg">
 						Get in touch
 					</p>
-					<p className="text-black dark:text-white text-sm">Email me: contact@alxdevlab.com</p>
+					<p className="text-black dark:text-white text-sm">Email me: alxdevlab@gmail.com</p>
 					<div className="flex justify-center gap-x-8 gap-y-4 py-10 mb-10">
 						<a
 							href="https://x.com/alxdevlab"
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
 				</div>
 			</div>
 			<p className="text-black dark:text-white text-sm pb-5">
-				© {currentYear ?? "Loading..."} Alex. All rights reserved.
+				© {currentYear ?? "Loading..."} ALX Web Dev. All rights reserved.
 			</p>
 		</footer>
 	);
