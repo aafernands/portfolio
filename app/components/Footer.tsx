@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
 				</div>
 			</div>
 			<p className="text-black dark:text-white text-sm pb-5">
-				© {currentYear ?? "Loading..."} Alex Fernandes. All rights reserved.
+				© {currentYear ?? "Loading..."} Alex. All rights reserved.
 			</p>
 		</footer>
 	);
