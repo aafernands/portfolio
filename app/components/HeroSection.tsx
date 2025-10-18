@@ -2,16 +2,16 @@
 
 import React from "react";
 import Image from "next/image";
-// import { FaChevronDown } from "react-icons/fa";
-// import { motion } from "framer-motion";
+import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
-  // const scrollToSection = () => {
-  //   const section = document.getElementById("about");
-  //   if (section) {
-  //     section.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
+  const scrollToSection = () => {
+    const section = document.getElementById("about");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="relative dark:bg-black py-9 px-2 overflow-hidden min-h-screen flex items-center">
@@ -59,14 +59,14 @@ export default function HeroSection() {
 
         </div>
       </div>
-      {/* <motion.div
+      <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex justify-center cursor-pointer"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
         onClick={scrollToSection}
       >
         <FaChevronDown className="text-white text-4xl animate-pulse" />
-      </motion.div> */}
+      </motion.div>
 
 
     </section>
