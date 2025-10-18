@@ -2,20 +2,20 @@
 
 import React from "react";
 import Image from "next/image";
-import { FaChevronDown } from "react-icons/fa";
-import { motion } from "framer-motion";
+// import { FaChevronDown } from "react-icons/fa";
+// import { motion } from "framer-motion";
 
 export default function HeroSection() {
-  const scrollToSection = () => {
-    const section = document.getElementById("about");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const scrollToSection = () => {
+  //   const section = document.getElementById("about");
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <section className="relative dark:bg-black py-9 px-2 overflow-hidden min-h-screen flex items-center">
-      {/* Aurora Animated Background */}
+      {/* Aurora Animated Background
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <motion.div
           className="absolute w-[300%] h-[300%] bg-[radial-gradient(circle_at_50%_50%,rgba(255,77,77,0.3),rgba(26,115,232,0.3),rgba(142,68,173,0.3),transparent)]"
@@ -31,7 +31,7 @@ export default function HeroSection() {
             ease: "easeInOut",
           }}
         />
-      </div>
+      </div> */}
 
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16 p-8 pb-20 sm:p-20">
 
