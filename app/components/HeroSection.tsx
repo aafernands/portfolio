@@ -50,10 +50,9 @@ export default function HeroSection() {
         {/* Right: Text Content */}
         <div className="text-center lg:text-left flex flex-col items-center lg:items-start gap-8">
           <h1 className="text-gray-900 dark:text-white text-4xl font-thin font-roboto">
-            Hi there, I am
             <span className="text-8xl font-thin">ALEX</span>
             <br />
-            
+            FERNANDES
           </h1>
           <p className="text-[14px]">THE JOURNEY OF A FRONT-END WEB DEVELOPER</p>
           <p className="text-[18px]">Welcome to my portfolio!</p>
