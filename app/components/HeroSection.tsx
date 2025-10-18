@@ -36,7 +36,7 @@ export default function HeroSection() {
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16 p-8 pb-20 sm:p-20">
 
         {/* Left: Profile Image */}
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex ju`stify-center items-center">
           <Image
             src="/aboutPhoto.png"
             alt="Alex Fernandes"
@@ -50,9 +50,10 @@ export default function HeroSection() {
         {/* Right: Text Content */}
         <div className="text-center lg:text-left flex flex-col items-center lg:items-start gap-8">
           <h1 className="text-gray-900 dark:text-white text-4xl font-thin font-roboto">
+            Hi there, I am
             <span className="text-8xl font-thin">ALEX</span>
             <br />
-            FERNANDES
+            
           </h1>
           <p className="text-[14px]">THE JOURNEY OF A FRONT-END WEB DEVELOPER</p>
           <p className="text-[18px]">Welcome to my portfolio!</p>
