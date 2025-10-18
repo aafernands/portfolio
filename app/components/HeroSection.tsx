@@ -59,14 +59,14 @@ export default function HeroSection() {
 
         </div>
       </div>
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex justify-center cursor-pointer"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
         onClick={scrollToSection}
       >
         <FaChevronDown className="text-white text-4xl animate-pulse" />
-      </motion.div>
+      </motion.div> */}
 
 
     </section>
