@@ -88,7 +88,7 @@ const NavBar = () => {
   }, [isSystemTheme]);
 
   return (
-    <nav className="p-3 bg-custom-light dark:bg-custom-dark backdrop-blur-md bg-opacity-50 dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 shadow-lg"
+    <nav className="p-3 bg-custom-light dark:bg-custom-dark  dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 shadow-lg"
       // <nav className="p-4 bg-custom-light dark:bg-custom-dark backdrop-blur-md bg-opacity-50 dark:bg-opacity-50 fixed top-0 left-0 right-0 z-50 rounded-lg shadow-lg"
       style={{
         position: "fixed",
